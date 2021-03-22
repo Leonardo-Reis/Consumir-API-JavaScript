@@ -14,8 +14,26 @@
     margin-top: 50px;
 }
 
+body {
+    background-color: rgb(196, 196, 196);
+}
+
+#container {
+    background-color: green;
+    width: 550px;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: rgb(207, 207, 207);
+    box-shadow: 0 0 20px rgb(110, 110, 110);
+    border-radius: 10px;
+    position: relative;
+    top: 80px;
+}
+
 .main-form h1 {
     font-size: x-large;
+    padding: 15px;
+    padding-bottom: 0;
 }
 
 .main-form input[type="text"] {

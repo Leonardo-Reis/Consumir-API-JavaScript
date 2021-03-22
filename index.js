@@ -1,9 +1,7 @@
 const form  = document.querySelector('#form')
 const tbody = document.querySelector('#tbody')
 
-
 var cep = document.querySelector('#campo')
-
 
 form.addEventListener('submit', (event) => {
 
