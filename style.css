@@ -28,17 +28,22 @@ body {
     border-radius: 10px;
     position: relative;
     top: 80px;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-form h1 {
-    font-size: x-large;
+    font-size: large;
     padding: 15px;
     padding-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .main-form input[type="text"] {
     margin: 20px;
     padding: 3px;
+    text-align: center;
+    background-color: rgb(247, 247, 247);
 }
 
 .main-form input[type="submit"] {
@@ -57,5 +62,6 @@ body {
 #table tr, #table, td, #table th {
     border: solid black 1px;
     padding: 10px 20px;
+    text-align: center;
 }
 

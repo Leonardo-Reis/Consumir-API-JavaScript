@@ -8,11 +8,19 @@ const getCep = {
 
     cep_obj: {},
 
+    url_atual: '',
+
     setListener: function() {
         this.form.addEventListener('submit', event => {
-            this.url = `https://viacep.com.br/ws/${this.cep_input.value}/json/`
+            url = `https://viacep.com.br/ws/${this.cep_input.value}/json`
 
-            this.main(url)
+            if (url !== this.url_atual){
+                this.main(url)
+            } else {
+                window.alert('Você acabou de requisitar esse CEP')
+            }
+
+            this.url_atual = url
 
             event.preventDefault()
         })
