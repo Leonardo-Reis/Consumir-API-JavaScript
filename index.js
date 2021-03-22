@@ -1,52 +1,57 @@
-const form  = document.querySelector('#form')
-const tbody = document.querySelector('#tbody')
+const getCep = {
+    form: document.querySelector('#form'),
+    tbody: document.querySelector('#tbody'),
+    
+    cep_input: document.querySelector('#campo'),
 
-var cep = document.querySelector('#campo')
+    cep_string: '',
 
-form.addEventListener('submit', (event) => {
+    cep_obj: {},
 
-    url = `https://viacep.com.br/ws/${cep.value}/json/` 
+    setListener: function() {
+        this.form.addEventListener('submit', event => {
+            this.url = `https://viacep.com.br/ws/${this.cep_input.value}/json/`
 
-    main(url)
+            this.main(url)
 
-    event.preventDefault()
-})
+            event.preventDefault()
+        })
+    },
 
-function fazGET(url) {
-    const request  = new XMLHttpRequest()
-    request.open('GET', url, false)
-    request.send()
+    main: function(url) {
+        this.fazGET(url)
+        this.GETtoJSON()
+        this.escreverLinhas(this.cep_obj)
+        
+    },
 
-    return request.responseText
-}
+    fazGET: function(url) {
+        const request = new XMLHttpRequest()
+        request.open('GET', url, false)
+        request.send()
 
-function toJSON(url) {
-    let data = fazGET(url)
-    let cep  = JSON.parse(data)
-    console.log(cep)
+        this.cep_string = request.responseText
+    },
 
-    return cep
-}
+    GETtoJSON: function() {
+        this.cep_obj = JSON.parse(this.cep_string)
+    },
 
-function escreverLinha(cep) {
-    for (let propriedade in cep) {
-        if (cep[propriedade] !== '') {
-            let linha = document.createElement('tr')
-            let td1   = document.createElement('td')
-            let td2   = document.createElement('td')
-            
-            td1.textContent = propriedade.charAt(0).toUpperCase() + propriedade.slice(1)
-            td2.textContent = cep[propriedade]
+    escreverLinhas: function(cep_obj) {
+        for (let propriedade in cep_obj) {
+            if (cep_obj[propriedade] !== '') {
+                let row = document.createElement('tr')
+                let td1 = document.createElement('td')
+                let td2 = document.createElement('td')
 
-            linha.appendChild(td1)
-            linha.appendChild(td2)
+                td1.textContent = propriedade
+                td2.textContent = cep_obj[propriedade]
+                
+                row.appendChild(td1)
+                row.appendChild(td2)
 
-            tbody.appendChild(linha)
+                this.tbody.appendChild(row)
+            }
         }
     }
-}
-
-function main(url) {
-    const cep = toJSON(url)
-    escreverLinha(cep)
 }
