@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black 1px;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.main-form h1 {
+    font-size: x-large;
+}
+
+.main-form input[type="text"] {
+    margin: 20px;
+    padding: 3px;
+}
+
+.main-form input[type="submit"] {
+    margin-bottom: 10px;
+    padding: 3px 7px;
+}
+
+#div-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px auto;
+}
+
+#table tr, #table, td, #table th {
+    border: solid black 1px;
+    padding: 10px 20px;
+}
+

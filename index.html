@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Analise de CEP</title>
+</head>
+<body>
+    <form method="get" action="http://127.0.0.1:5500/index.html" id="form">
+        <div class="main-form">
+            <h1>Digite seu CEP para mostrar as informações:</h1>
+            <input type="text" name="cep" id="campo" autocomplete="off">
+            <input type="submit" value="Mandar">
+        </div>
+    </form>    
+    <div id="div-table">
+        <table>
+            <thead>
+                <tr>
+                    <td class="td-cep">CEP</td>
+                    <td class="td-numcep">Num CEP</td>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
