@@ -30,7 +30,6 @@ const getCep = {
         this.fazGET(url)
         this.GETtoJSON()
         this.escreverLinhas(this.cep_obj)
-        
     },
 
     fazGET: function(url) {
@@ -39,6 +38,7 @@ const getCep = {
         request.send()
 
         this.cep_string = request.responseText
+        console.log(this.cep_string)
     },
 
     GETtoJSON: function() {
